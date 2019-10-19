@@ -1,24 +1,17 @@
-# README
+# Appointment Booking
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An algorithm to book appointments, based on previous time slots opening.
 
-Things you may want to cover:
+```ruby
+Event.create kind: 'opening', starts_at: DateTime.parse("2014-08-04 09:30"), ends_at: DateTime.parse("2014-08-04 12:30"), weekly_recurring: true
+    Event.create kind: 'appointment', starts_at: DateTime.parse("2014-08-11 10:30"), ends_at: DateTime.parse("2014-08-11 11:30")
+    availabilities = Event.availabilities DateTime.parse("2014-08-10")
 
-* Ruby version
+ ```
+ ### To run the tests
 
-* System dependencies
+ ```bash
+ rails test test/models/event_test.rb
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  rails test test/lib/managers/time_slots_test.rb
+  ```
